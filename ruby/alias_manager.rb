@@ -45,4 +45,74 @@ first_array.map! do
 
 end 
 
+######_____________________#####
+
+def alias_name
+
+puts "what is your full name?"
+name = gets.chomp.downcase.split(' ')
+
+first_name = name[0].split('')
+last_name = name[1].split('')
+
+p first_name
+p last_name 
+#new method?
+index = 0
+while index < first_name.length 
+
+  vowels_array = ["a", "e", "i", "o", "u"] 
+  c_array = ['b', 'c', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'p', 'q', 'r', 's', 't', 'v', 'x', 'y', 'z']
+  #p vowels_array
+  p first_name[index]
+
+ 
+  if vowels_array.include?(first_name[index])
+
+      first_name.map! do |letter|
+        
+          if letter == "u"
+            letter = "a"
+          else letter != "u"
+            vowel_i = vowels_array.index(letter)
+            p vowel_i
+            next_vowel_i = vowel_i.next
+            p next_vowel_i
+            vowels_array[next_vowel_i]
+          end
+        end 
+    p first_name
+
+
+  elsif c_array.include?(first_name[index])
+       
+       first_name.map! do |c_letter|
+          
+            if c_letter == "z"
+              c_letter = "b"
+            else c_letter != "z"
+              consonant_i = c_array.index(c_letter)
+              puts "this is the consonant_i"
+              p consonant_i
+              next_consonant_i = consonant_i +1
+              p next_consonant_i
+              c_array[next_consonant_i]
+            end
+          end 
+      
+    end 
+
+    index += 1 
+  end 
+
+
+end 
+p alias_name
+
+
+
+ 
+
+
+
 
